@@ -1,0 +1,230 @@
+﻿@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.992 0.001 95);
+  --foreground: oklch(0.238 0.014 255.2);
+  --card: oklch(0.998 0.001 95);
+  --card-foreground: oklch(0.238 0.014 255.2);
+  --popover: oklch(0.998 0.001 95);
+  --popover-foreground: oklch(0.238 0.014 255.2);
+  --primary: oklch(0.39 0.04 243.2);
+  --primary-foreground: oklch(0.99 0.001 95);
+  --secondary: oklch(0.972 0.004 247.9);
+  --secondary-foreground: oklch(0.285 0.018 252.4);
+  --muted: oklch(0.978 0.003 247.9);
+  --muted-foreground: oklch(0.49 0.015 252.2);
+  --accent: oklch(0.962 0.007 236.1);
+  --accent-foreground: oklch(0.285 0.018 252.4);
+  --destructive: oklch(0.61 0.21 25.5);
+  --destructive-foreground: oklch(0.99 0.001 95);
+  --border: oklch(0.915 0.006 251.1);
+  --input: oklch(0.915 0.006 251.1);
+  --ring: oklch(0.62 0.025 244.2);
+  --radius: 0.8rem;
+}
+
+.dark {
+  --background: oklch(0.22 0.01 258.3);
+  --foreground: oklch(0.952 0.003 260.1);
+  --card: oklch(0.255 0.012 258.5);
+  --card-foreground: oklch(0.952 0.003 260.1);
+  --popover: oklch(0.255 0.012 258.5);
+  --popover-foreground: oklch(0.952 0.003 260.1);
+  --primary: oklch(0.8 0.035 243.8);
+  --primary-foreground: oklch(0.2 0.012 258.4);
+  --secondary: oklch(0.3 0.01 258.7);
+  --secondary-foreground: oklch(0.93 0.004 260.3);
+  --muted: oklch(0.29 0.008 258.4);
+  --muted-foreground: oklch(0.73 0.012 257.6);
+  --accent: oklch(0.32 0.015 243.5);
+  --accent-foreground: oklch(0.95 0.003 260.1);
+  --destructive: oklch(0.7 0.17 23.5);
+  --destructive-foreground: oklch(0.95 0.003 260.1);
+  --border: oklch(0.355 0.012 258.1);
+  --input: oklch(0.355 0.012 258.1);
+  --ring: oklch(0.72 0.026 244.2);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: Cambria, Georgia, "Times New Roman", serif;
+    font-size: 15.5px;
+    line-height: 1.7;
+    transition:
+      background-color 220ms ease,
+      color 220ms ease;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    @apply text-balance;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  header,
+  footer {
+    transition:
+      background-color 220ms ease,
+      border-color 220ms ease,
+      color 220ms ease,
+      box-shadow 220ms ease,
+      opacity 220ms ease,
+      transform 220ms ease;
+  }
+
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 18%, white);
+  }
+}
+
+@layer utilities {
+  .container-shell {
+    @apply mx-auto w-full max-w-[80rem] px-4 sm:px-5 lg:px-6;
+  }
+
+  .container-page {
+    @apply mx-auto w-full max-w-[72rem] px-4 sm:px-5 lg:px-6;
+  }
+
+  .container-reading {
+    @apply mx-auto w-full max-w-[76rem] px-4 sm:px-5 lg:px-6;
+  }
+
+  .surface {
+    @apply rounded-[1.2rem] border border-border/85 bg-card shadow-[0_8px_24px_rgba(15,23,42,0.045)] transition-colors duration-200;
+  }
+
+  .card-hover {
+    @apply transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(15,23,42,0.07)] hover:border-border;
+  }
+
+  .calculator-spotlight {
+    @apply rounded-[1.4rem] border border-primary/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(247,250,252,0.98))] shadow-[0_16px_40px_rgba(15,23,42,0.06)] dark:bg-[linear-gradient(180deg,rgba(48,55,71,0.98),rgba(37,42,54,0.98))];
+  }
+
+  .prose-finance {
+    @apply max-w-none text-[1rem] leading-[1.84] text-foreground/88;
+  }
+
+  .prose-finance h2 {
+    @apply mt-10 scroll-m-24 text-[1.58rem] font-semibold tracking-tight text-foreground;
+  }
+
+  .prose-finance h3 {
+    @apply mt-7 scroll-m-24 text-[1.15rem] font-semibold text-foreground;
+  }
+
+  .prose-finance p,
+  .prose-finance ul,
+  .prose-finance ol {
+    @apply mt-4;
+  }
+
+  .prose-finance ul {
+    @apply list-disc pl-5;
+  }
+
+  .prose-finance ol {
+    @apply list-decimal pl-5;
+  }
+
+  .prose-finance li {
+    @apply mt-1.5;
+  }
+
+  .prose-finance strong {
+    @apply font-semibold text-foreground;
+  }
+
+  .prose-finance a {
+    @apply font-medium text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary;
+  }
+
+  .prose-finance blockquote {
+    @apply mt-5 border-l-2 border-border pl-5 italic text-muted-foreground;
+  }
+
+  .prose-finance table {
+    @apply mt-5 block w-full overflow-x-auto border-collapse rounded-2xl border border-border text-sm;
+  }
+
+  .prose-finance thead {
+    @apply bg-muted/70;
+  }
+
+  .prose-finance th,
+  .prose-finance td {
+    @apply border-b border-border px-4 py-3 text-left align-top;
+  }
+
+  .prose-finance code {
+    @apply rounded-md bg-muted px-1.5 py-0.5 text-sm;
+  }
+}
+

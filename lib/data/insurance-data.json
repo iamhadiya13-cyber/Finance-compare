@@ -1,0 +1,110 @@
+[
+  {
+    "providerName": "HDFC Bank Personal Loan",
+    "interestRate": "10.75% - 19.50%",
+    "processingFee": "Up to 2.5%",
+    "minSalary": 25000,
+    "maxTenureMonths": 72,
+    "loanAmountRange": "INR 50,000 - INR 40,00,000",
+    "pros": [
+      "Widely recognized bank with strong service footprint",
+      "Useful rate range for stronger salaried profiles"
+    ],
+    "cons": [
+      "Final pricing can widen quickly by profile",
+      "Processing fee still matters to total borrowing cost"
+    ],
+    "rating": 4.6,
+    "lastUpdated": "2026-04-01"
+  },
+  {
+    "providerName": "ICICI Bank Personal Loan",
+    "interestRate": "10.80% - 20.00%",
+    "processingFee": "Up to 2.5%",
+    "minSalary": 30000,
+    "maxTenureMonths": 72,
+    "loanAmountRange": "INR 50,000 - INR 50,00,000",
+    "pros": [
+      "Strong digital journey for existing bank users",
+      "Broad loan amount range for larger requirements"
+    ],
+    "cons": [
+      "Minimum income threshold is higher than some peers",
+      "Offer quality often depends on employer category"
+    ],
+    "rating": 4.4,
+    "lastUpdated": "2026-04-02"
+  },
+  {
+    "providerName": "Axis Bank Personal Loan",
+    "interestRate": "11.25% - 22.00%",
+    "processingFee": "Up to 2.0%",
+    "minSalary": 25000,
+    "maxTenureMonths": 60,
+    "loanAmountRange": "INR 50,000 - INR 10,00,000",
+    "pros": [
+      "Simple tenure structure for standard loan needs",
+      "Fee cap is moderate versus some non-bank peers"
+    ],
+    "cons": [
+      "Upper rate band can become expensive",
+      "Shorter maximum tenure may limit EMI flexibility"
+    ],
+    "rating": 4.1,
+    "lastUpdated": "2026-04-01"
+  },
+  {
+    "providerName": "Kotak Mahindra Bank Personal Loan",
+    "interestRate": "10.99% - 16.99%",
+    "processingFee": "Up to 3.0%",
+    "minSalary": 25000,
+    "maxTenureMonths": 72,
+    "loanAmountRange": "INR 1,00,000 - INR 35,00,000",
+    "pros": [
+      "Competitive published range for eligible salaried applicants",
+      "Long tenure options help with EMI planning"
+    ],
+    "cons": [
+      "Fee ceiling is higher than some large-bank peers",
+      "Eligibility can vary noticeably by city and employer"
+    ],
+    "rating": 4.3,
+    "lastUpdated": "2026-04-03"
+  },
+  {
+    "providerName": "IndusInd Bank Personal Loan",
+    "interestRate": "10.49% - 26.00%",
+    "processingFee": "Up to 3.5%",
+    "minSalary": 25000,
+    "maxTenureMonths": 72,
+    "loanAmountRange": "INR 30,000 - INR 25,00,000",
+    "pros": [
+      "Wide loan size flexibility across common borrowing needs",
+      "May be relevant for broader applicant profiles"
+    ],
+    "cons": [
+      "Very wide pricing band lowers rate certainty",
+      "Fees can be meaningful on smaller ticket loans"
+    ],
+    "rating": 4.0,
+    "lastUpdated": "2026-04-02"
+  },
+  {
+    "providerName": "Tata Capital Personal Loan",
+    "interestRate": "10.99% - 19.00%",
+    "processingFee": "Up to 4.0%",
+    "minSalary": 20000,
+    "maxTenureMonths": 72,
+    "loanAmountRange": "INR 75,000 - INR 35,00,000",
+    "pros": [
+      "Lower stated salary floor than several bank-led options",
+      "Useful brand familiarity for digital-first borrowers"
+    ],
+    "cons": [
+      "Fee ceiling is high relative to banks",
+      "Best offers still depend heavily on profile quality"
+    ],
+    "rating": 4.2,
+    "lastUpdated": "2026-04-04"
+  }
+]
