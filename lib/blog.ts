@@ -42,6 +42,10 @@ export type FaqItem = {
   answer: string;
 };
 
+function normalizeLineEndings(source: string) {
+  return source.replace(/\r\n/g, "\n");
+}
+
 function getAllFilePaths() {
   return fs
     .readdirSync(blogDirectory)
@@ -50,7 +54,7 @@ function getAllFilePaths() {
 }
 
 function extractTableOfContents(source: string): TocItem[] {
-  return source
+  return normalizeLineEndings(source)
     .split("\n")
     .filter((line) => line.startsWith("## ") || line.startsWith("### "))
     .map((line) => {
@@ -66,11 +70,12 @@ function extractTableOfContents(source: string): TocItem[] {
 }
 
 function extractFaqSection(source: string) {
-  const lines = source.split("\n");
+  const normalized = normalizeLineEndings(source);
+  const lines = normalized.split("\n");
   const faqStart = lines.findIndex((line) => line.trim() === "## FAQ");
 
   if (faqStart === -1) {
-    return { content: source, faqItems: [] as FaqItem[] };
+    return { content: normalized, faqItems: [] as FaqItem[] };
   }
 
   let faqEnd = lines.length;
@@ -118,7 +123,11 @@ function extractFaqSection(source: string) {
 }
 
 function insertMiniComparisonTable(source: string) {
-  const lines = source.split("\n");
+  if (source.includes("<MiniLoanComparisonTable />")) {
+    return source;
+  }
+
+  const lines = normalizeLineEndings(source).split("\n");
   const quickAnswerStart = lines.findIndex(
     (line) => line.trim() === "## Quick Answer"
   );
@@ -152,7 +161,8 @@ export function getAllPosts(): BlogPostMeta[] {
   return getAllFilePaths()
     .map((filePath) => {
       const raw = fs.readFileSync(filePath, "utf8");
-      const { data, content } = matter(raw);
+      const normalized = normalizeLineEndings(raw);
+      const { data, content } = matter(normalized);
       const frontmatter = data as BlogFrontmatter;
 
       return {
@@ -181,7 +191,8 @@ export function getPostSlugs() {
 export async function getPostBySlug(slug: string) {
   const filePath = path.join(blogDirectory, `${slug}.mdx`);
   const raw = fs.readFileSync(filePath, "utf8");
-  const { data, content: sourceContent } = matter(raw);
+  const normalized = normalizeLineEndings(raw);
+  const { data, content: sourceContent } = matter(normalized);
   const frontmatter = data as BlogFrontmatter;
   const toc = extractTableOfContents(sourceContent);
   const { content: contentWithoutFaq, faqItems } = extractFaqSection(sourceContent);
