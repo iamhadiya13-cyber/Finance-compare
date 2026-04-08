@@ -64,8 +64,8 @@ export function MiniLoanComparisonTable() {
         </p>
       </div>
 
-      <div className="hidden overflow-hidden rounded-[0.95rem] border border-border/70 md:block">
-        <table className="w-full border-collapse text-left text-sm">
+      <div className="overflow-x-auto rounded-[0.95rem] border border-border/70">
+        <table className="w-full min-w-[42rem] border-collapse text-left text-sm">
           <thead className="bg-muted/65 font-sans text-[0.76rem] uppercase tracking-[0.14em] text-muted-foreground">
             <tr>
               <th className="px-4 py-3 font-semibold">Lender</th>
@@ -106,44 +106,6 @@ export function MiniLoanComparisonTable() {
             ))}
           </tbody>
         </table>
-      </div>
-
-      <div className="grid gap-3 md:hidden">
-        {miniComparisonRows.map((row) => (
-          <div
-            key={row.lender}
-            className="rounded-[0.95rem] border border-border/70 bg-background/80 p-3.5 transition-colors duration-200 hover:bg-muted/25"
-          >
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <p className="font-sans text-[0.96rem] font-semibold text-foreground">
-                    {row.lender}
-                  </p>
-                  {row.highlight ? (
-                    <Badge variant="muted" className="font-sans text-[0.68rem] text-primary">
-                      ⭐ Recommended
-                    </Badge>
-                  ) : null}
-                </div>
-                <p className="mt-1 text-sm text-muted-foreground">{row.interestRate}</p>
-              </div>
-              <Badge variant="muted" className="font-sans text-[0.72rem]">
-                {row.bestFor}
-              </Badge>
-            </div>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">
-              Max loan: {row.maxLoan}
-            </p>
-            <div className="mt-3">
-              <Button asChild size="sm" className={`w-full ${ctaButtonClass}`}>
-                <Link href={row.href} className={ctaLinkClass}>
-                  Apply Now →
-                </Link>
-              </Button>
-            </div>
-          </div>
-        ))}
       </div>
 
       <p className="mt-3.5 text-xs leading-5 text-muted-foreground">

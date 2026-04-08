@@ -27,6 +27,11 @@ export const mdxComponents: MDXComponents = {
       />
     );
   },
+  table: ({ className, ...props }) => (
+    <div className="my-5 overflow-x-auto rounded-2xl border border-border">
+      <table {...props} className={cn("w-full min-w-[34rem] border-collapse text-sm", className)} />
+    </div>
+  ),
   EmiCalculator: () => <EmiCalculator compact />,
   DisclaimerBlock: () => <DisclaimerBlock />,
   MiniLoanComparisonTable: () => <MiniLoanComparisonTable />,

@@ -211,7 +211,7 @@
   }
 
   .prose-finance table {
-    @apply mt-5 block w-full overflow-x-auto border-collapse rounded-2xl border border-border text-sm;
+    @apply w-full border-collapse text-sm;
   }
 
   .prose-finance thead {
@@ -227,4 +227,5 @@
     @apply rounded-md bg-muted px-1.5 py-0.5 text-sm;
   }
 }
+
 
