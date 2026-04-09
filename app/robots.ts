@@ -1,5 +1,6 @@
-import type { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/site";
+﻿import type { MetadataRoute } from "next";
+
+const baseUrl = "https://finance-compar00.vercel.app";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: `${siteConfig.url}/sitemap.xml`,
+    sitemap: `${baseUrl}/sitemap.xml`,
   };
 }

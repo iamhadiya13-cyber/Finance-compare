@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticEntries: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}/`,
+      url: baseUrl,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 1,
